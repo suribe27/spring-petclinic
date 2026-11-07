@@ -13,5 +13,11 @@ pipeline {
                 sh 'mvn clean install -DskipTests'
             }
         }
+        stage('Docker Build') {
+            agent any
+            steps {
+                sh 'docker build -t suribe27/spring-petclinic:gestion-udem-jenkins .'
+            }
+        }
     }
 }
